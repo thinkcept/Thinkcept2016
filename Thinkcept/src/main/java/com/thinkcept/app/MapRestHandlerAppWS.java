@@ -82,7 +82,7 @@ public class MapRestHandlerAppWS {
 		return output;
 	}
 	
-	@RequestMapping(path = "/deploy", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
+	@RequestMapping(path = "/deploy1", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
 	public String deploy() throws Exception {
 		System.out.println("Updating the code");
 		String output = "";
