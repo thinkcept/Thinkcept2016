@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<title>Services Page</title>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="admin.js"></script>
+       <script type="text/javascript">
+              function myjsonpfunction(data){
+                  alert(data.responseData.results) //showing results data
+                  $.each(data.responseData.results,function(i,rows){
+                     alert(rows.url); //showing  results url
+                  });
+             }
+       </script>
+</head>
+<body>
+       <h1>This is a heading</h1>
+       <p>This is a paragraph.</p>
+       <div id="userSelection">
+              <table cellpadding="10">
+                     <tr>                       
+                           <td><label for="first">First</label></td>
+                           <td><input type="radio" name="choice" id="first" value="a"></td>
+                     </tr>
+                     <tr>
+                           <td><label for="second">Second</label></td>
+                           <td><input type="radio" name="choice" id="second" value="b"></td>
+                     </tr>
+                     <tr>
+                           <td><label for="third">Third</label></td>
+                           <td><input type="radio" name="choice" id="third" value="c"></td>
+                     </tr>
+                     <tr>
+                           <td><label for="fourth">Fourth</label></td>
+                           <td><input type="radio" name="choice" id="fourth" value="d"></td>
+                     </tr>
+                     <tr>
+                           <td><button type="button" id='testButton' onclick="showAlart()" value="Click Me! 4">Submit</button></td>
+                     </tr>
+              </table>
+              <div id="myDiv"></div>
+       </div>
+</body>
+</html>
