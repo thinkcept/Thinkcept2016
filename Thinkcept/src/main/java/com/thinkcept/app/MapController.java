@@ -24,6 +24,10 @@ public class MapController {
 	return "redirect:/resources/travelerMap.html";
     }
 
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String admin() {
+	return "redirect:/resources/admin.html";
+    }
     @RequestMapping(value = "/travelerMap.htm", method = RequestMethod.GET)
     public String dynamicTravelerMap(@RequestParam double latitude, @RequestParam double longitude,
 	    @RequestParam String interest, ModelMap model) {
