@@ -15,7 +15,7 @@
 		<input type="hidden" value="${longitude}" id="longitude"/>
 		<input type="hidden" value="${interest}" id="placeType"/>
 	</div>
-	<div id="floating-panel">
+	<!-- <div id="floating-panel">
 
 		<table cellpadding="2px" cellspacing="3px">
 			<tr>
@@ -42,7 +42,7 @@
 				<td><input type="button" value="Go" onclick=""></td>
 			</tr>
 		</table>
-	</div>
+	</div> -->
 	<div id="map"></div>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlP_nC8RRwGR5zcsb4PlSA9-MTA7FBtJU&signed_in=true&libraries=places&callback=initMap"
