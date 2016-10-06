@@ -18,18 +18,11 @@ function initMap() {
 	};
 	pyrmont.lat = Number(latitude);
 	pyrmont.lng = Number(longitude);
-  
-  if(pyrmont.lat === 0) {
-    pyrmont.lat =  37.615504;
-  }
-   if(pyrmont.lng === 0) {
-    pyrmont.lng =  -122.389499;
-  }
 	
 	
 	map = new google.maps.Map(document.getElementById('map'), {
 		center : pyrmont,
-		zoom : 16
+		zoom : 18
 	});
 
 	infowindow = new google.maps.InfoWindow();
@@ -95,12 +88,13 @@ function createMarker(place) {
 	});
 	markers.push(marker);
 	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.setContent(place.name);
+		infowindow.setContent(place.name+'<p><input type=button value=Route onclick=getRoute()>&nbsp;&nbsp;<input type=button value=Go onclick=move()>');
 		infowindow.open(map, this);
-		document.getElementById('end').value = place.name;
+		//document.getElementById('end').value = place.name;
 		endObj.lat = place.geometry.location.lat();
 		endObj.lng = place.geometry.location.lng();
 	});
+	
 }
 
 function clearMarkers() {
@@ -143,4 +137,22 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 			window.alert('Directions request failed due to ' + status);
 		}
 	});
+}
+function move()
+{
+	clearMarkers();
+	map = new google.maps.Map(document.getElementById('map'), {
+		center : endObj,
+		zoom : 18
+	});
+	var marker = new google.maps.Marker({
+		position : endObj,
+		animation : google.maps.Animation.BOUNCE,
+		map : map,
+	});
+
+	//infowindow.setContent(results[1].formatted_address);
+	//infowindow.open(map, marker);
+	
+	
 }
