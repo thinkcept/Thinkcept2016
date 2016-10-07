@@ -43,6 +43,39 @@
 			</tr>
 		</table>
 	</div> -->
+	<span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest</span>
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close">×</span>
+				<h1 align="center">Your Interests</h1>
+			</div>
+			<div class="modal-body">
+				<table align="center" class="menu">
+					<tr>
+						<td><a href="#">Restaurant</a></td>
+					</tr>
+					<tr>
+						<td><a href="#">ATM</a></td>
+					</tr>
+					<tr>
+						<td><a href="#">Cafe</a></td>
+					</tr>
+					<tr>
+						<td><a href="#">Store</a></td>
+					</tr>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<h3 align="center"></h3>
+			</div>
+		</div>
+
+	</div>
 	<div id="map"></div>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlP_nC8RRwGR5zcsb4PlSA9-MTA7FBtJU&signed_in=true&libraries=places&callback=initMap"
