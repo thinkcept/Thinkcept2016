@@ -94,7 +94,6 @@ function initMap() {
 	});
 
 	var placeType = document.getElementById('placeType').value;
-	alert(placeType);
 	//var onChangeHandler = function() {
 	if(placeType != "")
 	{
