@@ -47,7 +47,7 @@ html, body {
     padding: 0;
     border: 1px solid #888;
 	border-radius:7px;
-    width: 50%;
+    width: 30%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -70,7 +70,7 @@ html, body {
 .close {
     color: white;
     float: right;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -83,23 +83,42 @@ html, body {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #0AAE81;
-    color: white;
+   
+  background: #0EB0C6; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #0EB0C6, #1FEAAC); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #0EB0C6, #1FEAAC); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right,#0EB0C6, #1FEAAC); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #0EB0C6, #1FEAAC); /* Standard syntax */
+    color: #D4F6FA;
 }
 
-.modal-body {padding: 2px 16px;background-color: #E8F3EF;}
+.modal-body {padding: 2px 16px;
+
+
+background: red; /* For browsers that do not support gradients */ 
+  background: -webkit-radial-gradient(#F5FAFB, #D9F6FA, #B2F3FC); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#F5FAFB, #D9F6FA, #B2F3FC); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(#F5FAFB, #D9F6FA, #B2F3FC); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#F5FAFB, #D9F6FA, #B2F3FC); /* Standard syntax */
+
+
+;}
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #0AAE81;
-    color: white;
+     background: #0EB0C6; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #0EB0C6, #1FEAAC); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #0EB0C6, #1FEAAC); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right,#0EB0C6, #1FEAAC); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #0EB0C6, #1FEAAC); /* Standard syntax */
+    color: #707579;
 }
 
 
 .menu a {
     color: #0060B6;
     text-decoration: none;
-	font-size: 25px;
+	font-size: 20px;
 	font-weight:bold;
 }
 
@@ -108,6 +127,6 @@ html, body {
      color:#00A0C6; 
      text-decoration:none; 
      cursor:pointer;  
-	 font-size: 25px;
+	 font-size: 20px;
 	 
 }
