@@ -76,9 +76,9 @@ public class MapRestHandlerAppWS {
 		RestServiceUtil util = new RestServiceUtil();
 		logger.debug("user:"+user+" event:"+event+" latitude:"+latitude+" longitude:"+longitude);
 		if(null != user && null != event && null != latitude && null != longitude) {
-			util.sendPushNotification(user, Integer.parseInt(event), latitude, longitude);
+			return util.sendPushNotification(user, Integer.parseInt(event), latitude, longitude);
 		}
-		return "success";
+		return "Push notification not sent";
 	}
 
 	/**
