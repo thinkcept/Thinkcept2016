@@ -9,14 +9,17 @@
 <script type="text/javascript" src="../resources/travelerMap.js"></script>
 </head>
 <body>
-		
-	<div style="display:none;">
-		<input type="hidden" value="${latitude}" id="latitude"/>
-		<input type="hidden" value="${longitude}" id="longitude"/>
-		<input type="hidden" value="${interest}" id="placeType"/>
+
+	<div style="display: none;">
+		<input type="hidden" value="${latitude}" id="latitude" /> 
+		<input type="hidden" value="${longitude}" id="longitude" /> 
+		<input type="hidden" value="${interest}" id="placeType" />
+		<input type="hidden" value="" id="src"/>
+		<input type="hidden" value="" id="dest"/>
+		<input type="hidden" value="" id="srcPlaceName" />
+		<input type="hidden" value="" id="destPlaceName" />
 	</div>
 	<!-- <div id="floating-panel">
-
 		<table cellpadding="2px" cellspacing="3px">
 			<tr>
 				<td align="left">Origin :</td>
@@ -37,12 +40,12 @@
 				<td>Destination :</td>
 				<td><input type="text" id="end" value="Click on place icon"
 					readonly><input type="hidden" id="endLatLng"></td>
-
 				<td><input type="button" value="Route" onclick="getRoute()"></td>
 				<td><input type="button" value="Go" onclick=""></td>
 			</tr>
 		</table>
 	</div> -->
+
 	<span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest</span>
 
 	<!-- The Modal -->
@@ -76,6 +79,7 @@
 		</div>
 
 	</div>
+
 	<div id="map"></div>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlP_nC8RRwGR5zcsb4PlSA9-MTA7FBtJU&signed_in=true&libraries=places&callback=initMap"
