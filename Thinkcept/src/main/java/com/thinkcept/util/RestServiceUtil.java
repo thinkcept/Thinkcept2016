@@ -92,7 +92,7 @@ public class RestServiceUtil {
 		
 	}
 	
-	public void sendToFCM(String data) throws Exception {
+	public String sendToFCM(String data) throws Exception {
 		HttpClient client = HttpClientBuilder.create().build();
 		try {
 			HttpPost request = new HttpPost(FIREBASE_URL);
@@ -103,34 +103,34 @@ public class RestServiceUtil {
 			HttpResponse response = client.execute(request);
 			String responseMessage = EntityUtils.toString(response.getEntity());
 			logger.debug("Response from FCM:"+responseMessage);
+			return responseMessage;
 		} catch(Exception ex) {
 			logger.error("Error while sending message to FCM server...", ex);
 			throw ex;
 		} 
 	}
 	
-	public void sendPushNotification(String user, int event, String latitude, String longitude) throws Exception {
+	public String sendPushNotification(String user, int event, String latitude, String longitude) throws Exception {
 		String registrationToken = getTokenValue(user+"."+FIREBASE_TOKEN);
 		if(null == registrationToken || registrationToken.isEmpty()) {
 			throw new Exception("No device is registered.");
 		}
 		switch (event) {
 			case WELCOME_EVENT:
-				sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, "Welcome to SFO airport."));
-				break;
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, "Welcome to SFO airport."));
 				
 			case CHECK_IN_EVENT:
-				sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, "Proceed for security check in."));
-				break;
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, "Proceed for security check in."));
 			
 			case SECURITY_CHECK_IN_EVENT:
-				sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, 
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, 
 						"It seems you have completed security check in. You can explore the airport."));
 				
 			case BOARDING_EVENT:
-				sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, 
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, 
 						"Time to board the flight. Happy Journey!"));
-				break;
+			default:
+				return "Not a valid event";
 		}
 
 	}
