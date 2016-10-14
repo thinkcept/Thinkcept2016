@@ -18,6 +18,7 @@
 		<input type="hidden" value="" id="dest"/>
 		<input type="hidden" value="" id="srcPlaceName" />
 		<input type="hidden" value="" id="destPlaceName" />
+		<input type=hidden value="70" id ="timeLeft">
 	</div>
 	<!-- <div id="floating-panel">
 		<table cellpadding="2px" cellspacing="3px">
@@ -45,31 +46,31 @@
 			</tr>
 		</table>
 	</div> -->
-
+	
 	<span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest</span>
-
+	
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 
 		<!-- Modal content -->
 		<div class="modal-content">
 			<div class="modal-header">
-				<span class="close">×</span>
-				<h1 align="center">Your Interests</h1>
+				<span class="close">&#9747;</span>
+				<h2 align="center">Your Interests</h2>
 			</div>
 			<div class="modal-body">
 				<table align="center" class="menu">
 					<tr>
-						<td><a href="#">Restaurant</a></td>
+						<td><a onclick="nearByPlace('restaurant')">Restaurant</a></td>
 					</tr>
 					<tr>
-						<td><a href="#">ATM</a></td>
+						<td><a onclick="nearByPlace('atm')">ATM</a></td>
 					</tr>
 					<tr>
-						<td><a href="#">Cafe</a></td>
+						<td><a onclick="nearByPlace('cafe')">Cafe</a></td>
 					</tr>
 					<tr>
-						<td><a href="#">Store</a></td>
+						<td><a onclick="nearByPlace('store')">Store</a></td>
 					</tr>
 				</table>
 			</div>
@@ -86,3 +87,4 @@
 		async defer></script>
 </body>
 </html>
+
