@@ -18,7 +18,7 @@
 		<input type="hidden" value="" id="dest"/>
 		<input type="hidden" value="" id="srcPlaceName" />
 		<input type="hidden" value="" id="destPlaceName" />
-		<input type=hidden value="70" id ="timeLeft">
+		<input type=hidden value="45" id ="timeLeft">
 	</div>
 	<!-- <div id="floating-panel">
 		<table cellpadding="2px" cellspacing="3px">
@@ -46,8 +46,14 @@
 			</tr>
 		</table>
 	</div> -->
-	
-	<span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest</span>
+	<table width=100%>
+		<tr>
+			<td><span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest</span></td>
+			<td align="right">Time Left : <span id="time"></span> Minutes!</td>
+		</tr>
+	</table>
+	<!-- <span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest</span>
+	<align="right">Time Left : <span id="time"></span> minutes!</align> -->
 	
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
@@ -87,4 +93,5 @@
 		async defer></script>
 </body>
 </html>
+
 
