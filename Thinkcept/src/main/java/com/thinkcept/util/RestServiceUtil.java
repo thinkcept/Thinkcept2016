@@ -138,15 +138,11 @@ public class RestServiceUtil {
 	public String getJSONPayLoad(String to, String latitude, String longitude, String message) throws JSONException {
 		JSONObject payLoad = new JSONObject();
 		payLoad.put("to", to);
-		JSONObject notification = new JSONObject();
-		notification.put("title", "Event Notification");
-		notification.put("body", message);
-		notification.put("icon", "myicon");
-		notification.put("sound", "default");
 		JSONObject data = new JSONObject();
+		data.put("title", "Event Notification");
+		data.put("body", message);
 		data.put("latitude", latitude);
 		data.put("longitude", longitude);
-		payLoad.put("notification", notification);
 		payLoad.put("data", data);
 		return payLoad.toString();
 	}
