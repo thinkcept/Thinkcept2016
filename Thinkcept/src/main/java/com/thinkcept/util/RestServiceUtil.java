@@ -26,6 +26,10 @@ public class RestServiceUtil {
 	public static final int SECURITY_CHECK_IN_EVENT = 2;
 	public static final int BOARDING_EVENT = 3;
 	
+	public static final String WELCOME_MESSAGE = "Welcome to SFO airport. Proceed for check in.";
+	public static final String CHECK_IN_MESSAGE = "Proceed for security check in.";
+	public static final String SECURITY_CHECK_IN_MESSAGE = "It seems you have completed security check in. You can explore the airport.";
+	public static final String BOARDING_MESSAGE = "Time to board the flight. Happy Journey!";
 	
 	public static final String FIREBASE_TOKEN = "firebaseToken";
 	private static final String SERVER_KEY = "AIzaSyA4JpWxR3oPE-vA8yX9VHXxTgCj9a3Dxco";
@@ -115,20 +119,33 @@ public class RestServiceUtil {
 		if(null == registrationToken || registrationToken.isEmpty()) {
 			throw new Exception("No device is registered.");
 		}
+		if("getFromProperty".equalsIgnoreCase(latitude)) {
+			latitude = getTokenValue(user+"."+event+".latitude");
+		}
+		if("getFromProperty".equalsIgnoreCase(longitude)) {
+			longitude = getTokenValue(user+"."+event+".longitude");
+		}
+		if(null == latitude || latitude.isEmpty()) {
+			latitude = "37.615504";
+		}
+		if(null == longitude || longitude.isEmpty()) {
+			longitude = "-122.389499";
+		}
+		
+		String message = getTokenValue(user+"."+event+".message");
+		
 		switch (event) {
 			case WELCOME_EVENT:
-				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, "Welcome to SFO airport."));
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? WELCOME_MESSAGE : message)));
 				
 			case CHECK_IN_EVENT:
-				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, "Proceed for security check in."));
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? CHECK_IN_MESSAGE : message)));
 			
 			case SECURITY_CHECK_IN_EVENT:
-				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, 
-						"It seems you have completed security check in. You can explore the airport."));
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? SECURITY_CHECK_IN_MESSAGE : message)));
 				
 			case BOARDING_EVENT:
-				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, 
-						"Time to board the flight. Happy Journey!"));
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? BOARDING_MESSAGE : message)));
 			default:
 				return "Not a valid event";
 		}
