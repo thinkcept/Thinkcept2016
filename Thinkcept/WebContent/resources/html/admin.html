@@ -14,28 +14,44 @@
        </script>
 </head>
 <body>
-       <h1>This is a heading</h1>
-       <p>This is a paragraph.</p>
+       <h1>Push Notification Console</h1>
+       <p>Welcome admin</p>
        <div id="userSelection">
               <table cellpadding="10">
-                     <tr>                       
-                           <td><label for="first">First</label></td>
-                           <td><input type="radio" name="choice" id="first" value="a"></td>
+                     <tr>         
+                           <td><b><font size="4">Milestones :</font></b></td>       
+                           
+                           <td><label for="first"><b><font size="3">Reached Airport</font></label></td>
+                           <td><input type="radio" name="choice" id="first" value="a" onclick="defaultMessage()"></td>
+                           
+                           <td><label for="second"><b><font size="3">Boarding Pass Collection</font></label></td>
+                           <td><input type="radio" name="choice" id="second" value="b" onclick="defaultMessage()"></td>
+                           
+                           <td><label for="third"><b><font size="3">Security Check-In</font></label></td>
+                           <td><input type="radio" name="choice" id="third" value="c" onclick="defaultMessage()"></td>
+                           
+                           <td><label for="fourth"><b><font size="3">Boarding</font></label></td>
+                           <td><input type="radio" name="choice" id="fourth" value="d" onclick="defaultMessage()"></td>
+                           
+                           <td><label for="fifth"><b><font size="3">Custom</font></label></td>
+                           <td><input type="radio" name="choice" id="fifth" value="e" onclick="defaultMessage()"></td>
+                     </tr>
+                     
+                     <tr>
+                     <td><b><font size="4">Latitude :</font></b></td>  
+                     <td><input type="text" id="latitude" value="37.3675745"></td>
                      </tr>
                      <tr>
-                           <td><label for="second">Second</label></td>
-                           <td><input type="radio" name="choice" id="second" value="b"></td>
+                     <td><b><font size="4">Longitude :</font></b></td>  
+                     <td><input type="text" id="longitude" value="-121.9299535"></td>
                      </tr>
                      <tr>
-                           <td><label for="third">Third</label></td>
-                           <td><input type="radio" name="choice" id="third" value="c"></td>
+                     <td><b><font size="4">Notification Message :</font></b></td>
+                     <td><textarea id="myTextarea" rows="5">Text Message</textarea></td>
                      </tr>
+                     
                      <tr>
-                           <td><label for="fourth">Fourth</label></td>
-                           <td><input type="radio" name="choice" id="fourth" value="d"></td>
-                     </tr>
-                     <tr>
-                           <td><button type="button" id='testButton' onclick="showAlart()" value="Click Me! 4">Submit</button></td>
+                           <td><button type="button" id='testButton' onclick="showAlert()" value="Click Me! 4">Submit</button></td>
                      </tr>
               </table>
               <div id="myDiv"></div>
