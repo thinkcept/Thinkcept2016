@@ -14,6 +14,7 @@
 		<input type="hidden" value="${latitude}" id="latitude" /> 
 		<input type="hidden" value="${longitude}" id="longitude" /> 
 		<input type="hidden" value="${interest}" id="placeType" />
+		<input type="hidden" value="${flag}" id="flag" />
 		<input type="hidden" value="" id="src"/>
 		<input type="hidden" value="" id="dest"/>
 		<input type="hidden" value="" id="srcPlaceName" />
@@ -46,9 +47,9 @@
 			</tr>
 		</table>
 	</div> -->
-	<table width=100%>
+	<table width=100% id="interestId">
 		<tr>
-			<td><span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest</span></td>
+			<td width="50%"><span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest</span></td>
 			<td align="right">Time Left : <span id="time"></span> Minutes!</td>
 		</tr>
 	</table>
