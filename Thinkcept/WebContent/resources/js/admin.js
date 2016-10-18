@@ -45,7 +45,7 @@ function showAlert() {
 		}
 	};
 	// alert("test 2");
-	xmlhttp.open("GET", url, true);
+	xmlhttp.open("GET", url, false);
 	xmlhttp.send(null);
 }
 
