@@ -114,7 +114,7 @@ public class RestServiceUtil {
 		} 
 	}
 	
-	public String sendPushNotification(String user, int event, String latitude, String longitude) throws Exception {
+	public String sendPushNotification(String user, int event, String latitude, String longitude, String message) throws Exception {
 		String registrationToken = getTokenValue(user+"."+FIREBASE_TOKEN);
 		if(null == registrationToken || registrationToken.isEmpty()) {
 			throw new Exception("No device is registered.");
@@ -132,7 +132,9 @@ public class RestServiceUtil {
 			longitude = "-122.389499";
 		}
 		
-		String message = getTokenValue(user+"."+event+".message");
+		if(message == null || ("").equals(message.trim())){
+		 message = getTokenValue(user+"."+event+".message");
+		}
 		
 		switch (event) {
 			case WELCOME_EVENT:
