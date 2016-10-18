@@ -72,11 +72,12 @@ public class MapRestHandlerAppWS {
 		@ApiImplicitParam(name = "longitude", value = "LONGITUDE", required = true, dataType = "string", paramType = "query", defaultValue = "1")})
 	@RequestMapping(path = "/sendNotification", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
 	public String sendPushNotification(@RequestParam(name = "user") String user, @RequestParam(name = "event") String event,
-			@RequestParam(name = "latitude") String latitude, @RequestParam(name = "longitude") String longitude) throws Exception {
+			@RequestParam(name = "latitude") String latitude, @RequestParam(name = "longitude") String longitude, @RequestParam(name = "message", required=false) String message) throws Exception {
 		RestServiceUtil util = new RestServiceUtil();
 		logger.debug("user:"+user+" event:"+event+" latitude:"+latitude+" longitude:"+longitude);
+		//System.out.println("user:"+user+" event:"+event+" latitude:"+latitude+" longitude:"+longitude+" message :"+message);
 		if(null != user && null != event && null != latitude && null != longitude) {
-			return util.sendPushNotification(user, Integer.parseInt(event), latitude, longitude);
+			return util.sendPushNotification(user, Integer.parseInt(event), latitude, longitude,message);
 		}
 		return "Push notification not sent";
 	}
