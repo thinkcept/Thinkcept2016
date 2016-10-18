@@ -130,3 +130,13 @@ background: red; /* For browsers that do not support gradients */
 	 font-size: 20px;
 	 
 }
+
+#userSelection {   
+  position:absolute;
+  left:88px;
+  top:158px;
+  width:1012px;
+  height:295px;
+  border:1px solid #262626;
+  background:#ffffcc;
+}
