@@ -30,10 +30,11 @@ public class MapController {
     }
     @RequestMapping(value = "/travelerMap.htm", method = RequestMethod.GET)
     public String dynamicTravelerMap(@RequestParam double latitude, @RequestParam double longitude,
-	    @RequestParam String interest, ModelMap model) {
+	    @RequestParam String interest, @RequestParam(required=false) String flag, ModelMap model) {
 	model.addAttribute("latitude", latitude);
 	model.addAttribute("longitude", longitude);
 	model.addAttribute("interest", interest);
+	model.addAttribute("flag", flag);
 	return "travelerMap";
     }
 
