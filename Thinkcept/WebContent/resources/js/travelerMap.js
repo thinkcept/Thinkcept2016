@@ -249,7 +249,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 //		destination : "Lori's Diner, 900 North Point Street, San Francisco, CA 94128, United States",
 //		origin : google.maps.Place(startPlaceId),
 //		destination : google.maps.Place(endPlaceId),
-		travelMode : google.maps.TravelMode["DRIVING"]
+		travelMode : google.maps.TravelMode["WALKING"]
 	}, function(response, status) {
 		
 		var distance = google.maps.geometry.spherical.computeDistanceBetween (startLatLng, endLatLng);
@@ -287,6 +287,9 @@ function move()
 
 window.onload = function () {
 	var modal = document.getElementById('myModal');
+	
+	var interestId = document.getElementById('interestId');
+	var flag = document.getElementById('flag').value;
 
 	// Get the button that opens the modal
 	var btn = document.getElementById("myBtn");
@@ -304,9 +307,14 @@ window.onload = function () {
 	    modal.style.display = "none";
 	}
 	
-	var fiveMinutes = 60 * Number(document.getElementById("timeLeft").value),
-    display = document.querySelector('#time');
-	startTimer(fiveMinutes, display);
+	if(flag == undefined || flag == null || flag == '') {
+		interestId.style.display = "none";
+	} else {
+		interestId.style.display = "block";
+		var fiveMinutes = 60 * Number(document.getElementById("timeLeft").value),
+	    display = document.querySelector('#time');
+		startTimer(fiveMinutes, display);
+	}
 }
 //Get the modal
 
