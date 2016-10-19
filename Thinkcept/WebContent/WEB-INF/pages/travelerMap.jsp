@@ -49,7 +49,7 @@
 	</div> -->
 	<table width=100% id="interestId">
 		<tr>
-			<td align="left" width="86.6%"><span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest</span></td>
+			<td align="left"><span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest&nbsp;&nbsp;</span></td>
 			<td align="right">Time Left : <span id="time"></span> Minutes!</td>
 		</tr>
 	</table>
