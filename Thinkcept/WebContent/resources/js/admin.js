@@ -52,11 +52,11 @@ function showAlert() {
 function  defaultMessage(){
 	var selectedVal = document.querySelector('input[name = "choice"]:checked').value;
 	if(selectedVal=='a' || selectedVal=="a"  ){
-		document.getElementById("myTextarea").value = "Welcome to SFO airport. Proceed for check in.";
+		document.getElementById("myTextarea").value = "Welcome to ORD airport.Wish you a Happy journey.";
 	}
 	
 	if(selectedVal=='b' || selectedVal=="b"  ){
-		document.getElementById("myTextarea").value = "Proceed for security check in.";
+		document.getElementById("myTextarea").value = "Please Collect your boarding pass.";
 	}
 	
 	if(selectedVal=='c' || selectedVal=="c"  ){
