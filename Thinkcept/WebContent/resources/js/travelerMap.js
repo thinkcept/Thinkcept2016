@@ -317,6 +317,7 @@ window.onload = function () {
 	    display = document.querySelector('#time');
 		startTimer(fiveMinutes, display);
 	}
+	interestId.style.display = "block";
 }
 //Get the modal
 
