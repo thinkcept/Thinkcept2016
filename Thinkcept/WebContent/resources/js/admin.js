@@ -2,27 +2,27 @@ function showAlert() {
 	// var MyDiv2 = document.getElementById("userSelection").value;
 	var selectedVal = document.querySelector('input[name = "choice"]:checked').value;
 	
-	alert(selectedVal);
+	//alert(selectedVal);
 	var latitude = document.getElementById("latitude").value;
 	var longitude = document.getElementById("longitude").value;
 	var message =document.getElementById("myTextarea").value;
 	var event;
 	if(selectedVal=='a'){
-		event=1;
+		event=0;
 	}else if(selectedVal=='b'){
-		event=2;
+		event=1;
 	}else if(selectedVal=='c'){
-		event=3;
+		event=2;
 	}else if(selectedVal=='d'){
-		event=4;
+		event=3;
 	}else{
-		event=5;
+		event=4;
 	}
 	
 	// alert("window.XMLHttpRequest:::->"+window.XMLHttpRequest);
 	var xmlhttp = new XMLHttpRequest();
 	// "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=AAA";
-	var url = "http://localhost:8085/thinkcept/rest/sendNotification?user=prabhat&event="+event+"&latitude="+latitude+"&longitude="+longitude+"&message="+message;
+	var url = "http://54.218.95.197:8080/thinkcept/rest/sendNotification?user=prabhat&event="+event+"&latitude="+latitude+"&longitude="+longitude+"&message="+message;
 	
 	//var url = "http://localhost:8085/thinkcept/rest/getPNR?pnr=123";
 	// var url = "http://html.net/tutorials/javascript/lesson18_test.xml"
