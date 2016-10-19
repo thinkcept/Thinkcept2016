@@ -94,14 +94,11 @@ function initMap() {
 	});
 
 	var placeType = document.getElementById('placeType').value;
-	//var onChangeHandler = function() {
 	if(placeType != "")
 	{
 		nearByPlace(placeType);
 	}
-	//};
-	//document.getElementById('placeType').addEventListener('change',
-	//		onChangeHandler);
+	
 }
 
 function nearByPlace(placeType) {
@@ -145,7 +142,7 @@ function createMarker(place) {
 	markers.push(marker);
 	google.maps.event.addListener(marker, 'click', function() {
 		console.log("End: " + this.position.toJSON());
-		infowindow.setContent(place.name+'<p><input type=button value=Route onclick=getRoute()>&nbsp;&nbsp;<input type=button value=Go onclick=move()>');
+		infowindow.setContent(place.name+'<p><input type=button value=Route onclick=getRoute()>&nbsp;&nbsp;<input type=button value=Go onclick=move()></p><span id="duration"></span>');
 		infowindow.open(map, this);
 		document.getElementById('dest').value = place.place_id;  //place.name + ", San Francisco, CA 94128, United States";
 
@@ -256,6 +253,11 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 		console.log("Distance between two location = " + distance + " m.");
 		if (status === google.maps.DirectionsStatus.OK) {
 			directionsDisplay.setDirections(response);
+			var point = response.routes[ 0 ].legs[ 0 ];
+			display = document.querySelector('#duration');
+			display.textContent = "Walking Time: " +  point.duration.text + ", Distance: "+parseFloat(distance).toFixed(2)+"m.";
+			//document.getElementById("duration").value = "Travel Time :"+point.duration.text;
+	        console.log( 'Estimated travel time: ' + point.duration.text + ' (' + point.distance.text + ')' );
 		} else {
 			window.alert('Directions request failed due to ' + status);
 		}
