@@ -149,7 +149,7 @@ public class RestServiceUtil {
 			case BOARDING_EVENT:
 				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? BOARDING_MESSAGE : message)));
 			default:
-				return "Not a valid event";
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? BOARDING_MESSAGE : message)));
 		}
 
 	}
