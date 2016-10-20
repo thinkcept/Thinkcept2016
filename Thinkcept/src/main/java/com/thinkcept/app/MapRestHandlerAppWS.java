@@ -88,7 +88,7 @@ public class MapRestHandlerAppWS {
 				buddyMsg = "Your papa has collected boarding pass.\n-PHHoneix";
 			} else if("2".equals(event)) {
 				buddyMsg = "Your papa is done with security checkin.\n-PHHoneix";
-			} else if("4".equals(event)) {
+			} else if("3".equals(event)) {
 				buddyMsg = "Your papa is ready to board.\n-PHHoneix";
 			} else if("100".equals(event)) {
 				buddyMsg = message;
