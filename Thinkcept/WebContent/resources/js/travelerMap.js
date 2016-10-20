@@ -6,6 +6,19 @@ var startObj = {
 	lat : 1.0,
 	lng : 1.0
 };
+var boarding = {
+		lat : 41.97898848526869,
+		lng : -87.90561363128279		
+};
+var security = {
+		lat : 41.978976521700844,
+		lng : -87.90615946081732		
+};
+var board = {
+		lat : 41.97799948940687,
+		lng : -87.90641158846472		
+};
+
 var endObj = {
 		lat : 1.0,
 		lng : 1.0
@@ -93,11 +106,15 @@ function initMap() {
 		}
 	});
 
-	var placeType = document.getElementById('placeType').value;
+	createPlaceMarker(boarding, 1);
+	
+	
+	
+	/*var placeType = document.getElementById('placeType').value;
 	if(placeType != "")
 	{
 		nearByPlace(placeType);
-	}
+	}*/
 	
 }
 
@@ -158,6 +175,46 @@ function createMarker(place) {
 	
 }
 
+
+function createPlaceMarker(pointObj, id) {
+
+	//var placeLoc = place.geometry.location;
+	//alert(place.geometry.location);
+	var pointName = "";
+	if(id == 1)
+		pointName = "Boarding Pass Collection";
+	else if(id == 2)
+		pointName = "Security Checking";
+	else if(id == 3)
+		pointName = "Bording";
+	var marker = new google.maps.Marker({
+		map : map,
+		animation : google.maps.Animation.DROP,
+		icon : 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+		position : pointObj,
+		draggable: true
+	});
+	markers.push(marker);
+	google.maps.event.addListener(marker, 'click', function() {
+		console.log("End: " + this.position.toJSON());
+		infowindow.setContent(pointName+'<p><input type=button value=Route onclick=getRoute()>&nbsp;&nbsp;<input type=button value=Go onclick=pointMove('+id+')></p><span id="duration"></span>');
+		infowindow.open(map, this);
+		//document.getElementById('dest').value = place.place_id;  //place.name + ", San Francisco, CA 94128, United States";
+
+		direction.end.lat = this.position.toJSON().lat;
+		direction.end.lng = this.position.toJSON().lng;
+		
+		endObj.lat = pointObj.lat;
+		endObj.lng = pointObj.lng;
+		
+//		var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + endObj.lat + "," + endObj.lng+"&sensor=true";
+//		findAddressByLatLon(url, "dest");
+	});
+	
+}
+
+
+
 function clearMarkers() {
 	setMapOnAll(null);
 	markers = [];
@@ -217,8 +274,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 	var endPlaceId = document.getElementById('dest').value;
 	console.log("startPlaceId = " + startPlaceId);
 	console.log("endPlaceId = " + endPlaceId);
-	console.log("Start Point: " + direction.start.lat + "," + direction.start.lng);
-	console.log("End Point: " + direction.end.lat + "," + direction.end.lng);
+	
 	
 	var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + direction.start.lat + "," + direction.start.lng+"&sensor=true";
 	findAddressByLatLon(url, 'srcPlaceName');
@@ -288,6 +344,47 @@ function move()
 	
 }
 
+function pointMove(id)
+{
+	clearMarkers();
+	map = new google.maps.Map(document.getElementById('map'), {
+		center : endObj,
+		zoom : 18
+	});
+	var marker = new google.maps.Marker({
+		position : endObj,
+		animation : google.maps.Animation.BOUNCE,
+		map : map,
+	});
+	document.getElementById('latitude').value = endObj.lat;
+	document.getElementById('longitude').value = endObj.lng;
+	direction.start.lat = endObj.lat;
+	direction.start.lng = endObj.lng;
+	startObj = endObj;
+	if(id == 1)
+	{
+		createPlaceMarker(security, 2);
+
+	}
+	else if(id == 2)
+	{
+		createPlaceMarker(board, 3);
+		interestId.style.display = "block";
+		var fiveMinutes = 60 * Number(document.getElementById("timeLeft").value),
+		display = document.querySelector('#time');
+		startTimer(fiveMinutes, display);
+	}
+	//infowindow.setContent(results[1].formatted_address);
+	//infowindow.open(map, marker);
+	
+	
+}
+
+
+
+
+
+
 window.onload = function () {
 	var modal = document.getElementById('myModal');
 	
@@ -318,7 +415,6 @@ window.onload = function () {
 	    display = document.querySelector('#time');
 		startTimer(fiveMinutes, display);
 	}
-	interestId.style.display = "block";
 }
 //Get the modal
 
