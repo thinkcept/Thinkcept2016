@@ -72,11 +72,32 @@ public class MapRestHandlerAppWS {
 		@ApiImplicitParam(name = "longitude", value = "LONGITUDE", required = true, dataType = "string", paramType = "query", defaultValue = "1")})
 	@RequestMapping(path = "/sendNotification", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
 	public String sendPushNotification(@RequestParam(name = "user") String user, @RequestParam(name = "event") String event,
-			@RequestParam(name = "latitude") String latitude, @RequestParam(name = "longitude") String longitude, @RequestParam(name = "message", required=false) String message) throws Exception {
+			@RequestParam(name = "latitude") String latitude, @RequestParam(name = "longitude") String longitude, 
+			@RequestParam(name = "message", required=false) String message, @RequestParam(name = "mob", required=false) String mobileNo) throws Exception {
 		RestServiceUtil util = new RestServiceUtil();
 		logger.debug("user:"+user+" event:"+event+" latitude:"+latitude+" longitude:"+longitude);
 		//System.out.println("user:"+user+" event:"+event+" latitude:"+latitude+" longitude:"+longitude+" message :"+message);
 		if(null != user && null != event && null != latitude && null != longitude) {
+			if(mobileNo == null || mobileNo.trim().length() == 0) {
+				mobileNo = "9830525559";
+			}
+			
+			if(message != null && message.trim().length() > 0) {
+				String senderId = "THNKCP";
+				try {
+					String output = "";
+					Process process = Runtime.getRuntime().exec(
+							"/home/ubuntu/Code/script/sendSms.sh " + mobileNo + " " + senderId + " \"" + message + "\"");
+					BufferedReader reader = new BufferedReader(new InputStreamReader(
+							process.getInputStream()));
+					String s;
+					while ((s = reader.readLine()) != null) {
+						output = output + "\n" + s;
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 			return util.sendPushNotification(user, Integer.parseInt(event), latitude, longitude,message);
 		}
 		return "Push notification not sent";
