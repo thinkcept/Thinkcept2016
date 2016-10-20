@@ -13,7 +13,7 @@
 	<div style="display: none;">
 		<input type="hidden" value="${latitude}" id="latitude" /> 
 		<input type="hidden" value="${longitude}" id="longitude" /> 
-		<input type="hidden" value="${interest}" id="placeType" />
+		<%-- <input type="hidden" value="${interest}" id="placeType" /> --%>
 		<input type="hidden" value="${flag}" id="flag" />
 		<input type="hidden" value="" id="src"/>
 		<input type="hidden" value="" id="dest"/>
@@ -49,7 +49,7 @@
 	</div> -->
 	<table width=100% id="interestId">
 		<tr>
-			<td align="left"><span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest&nbsp;&nbsp;</span></td>
+			<td align="left" width="86.6%"><span style="font-size: 20px; cursor: pointer" id="myBtn">&#10147;Interest</span></td>
 			<td align="right">Time Left : <span id="time"></span> Minutes!</td>
 		</tr>
 	</table>
@@ -62,7 +62,7 @@
 		<!-- Modal content -->
 		<div class="modal-content">
 			<div class="modal-header">
-				<span class="close">X</span>
+				<span class="close">&#9747;</span>
 				<h2 align="center">Your Interests</h2>
 			</div>
 			<div class="modal-body">
