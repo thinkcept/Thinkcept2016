@@ -53,18 +53,26 @@ function  defaultMessage(){
 	var selectedVal = document.querySelector('input[name = "choice"]:checked').value;
 	if(selectedVal=='a' || selectedVal=="a"  ){
 		document.getElementById("myTextarea").value = "Welcome to ORD airport.Wish you a Happy journey.";
+		document.getElementById("latitude").value = "41.97927760414138";
+		document.getElementById("longitude").value = "-87.90554925826643";
 	}
 	
 	if(selectedVal=='b' || selectedVal=="b"  ){
 		document.getElementById("myTextarea").value = "Please Collect your boarding pass.";
+		document.getElementById("latitude").value = "41.97927760414138";
+		document.getElementById("longitude").value = "-87.90554925826643";
 	}
 	
 	if(selectedVal=='c' || selectedVal=="c"  ){
 		document.getElementById("myTextarea").value = "It seems you have completed security check in. You can explore the airport.";
+		document.getElementById("latitude").value = "41.97927760414138";
+		document.getElementById("longitude").value = "-87.90554925826643";
 	}
 	
 	if(selectedVal=='d' || selectedVal=="d"  ){
 		document.getElementById("myTextarea").value = "Time to board the flight. Happy Journey!";
+		document.getElementById("latitude").value = "41.97927760414138";
+		document.getElementById("longitude").value = "-87.90554925826643";
 	}
 	
 	if(selectedVal=='e' || selectedVal=="e"  ){
