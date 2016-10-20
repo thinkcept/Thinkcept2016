@@ -138,23 +138,23 @@ public class RestServiceUtil {
 		
 		switch (event) {
 			case WELCOME_EVENT:
-				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? WELCOME_MESSAGE : message)));
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? WELCOME_MESSAGE : message), event));
 				
 			case CHECK_IN_EVENT:
-				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? CHECK_IN_MESSAGE : message)));
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? CHECK_IN_MESSAGE : message), event));
 			
 			case SECURITY_CHECK_IN_EVENT:
-				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? SECURITY_CHECK_IN_MESSAGE : message)));
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? SECURITY_CHECK_IN_MESSAGE : message), event));
 				
 			case BOARDING_EVENT:
-				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? BOARDING_MESSAGE : message)));
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? BOARDING_MESSAGE : message), event));
 			default:
-				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? BOARDING_MESSAGE : message)));
+				return sendToFCM(getJSONPayLoad(registrationToken, latitude, longitude, (null == message || message.isEmpty() ? BOARDING_MESSAGE : message), event));
 		}
 
 	}
 	
-	public String getJSONPayLoad(String to, String latitude, String longitude, String message) throws JSONException {
+	public String getJSONPayLoad(String to, String latitude, String longitude, String message, int event) throws JSONException {
 		JSONObject payLoad = new JSONObject();
 		payLoad.put("to", to);
 		JSONObject data = new JSONObject();
@@ -162,8 +162,11 @@ public class RestServiceUtil {
 		data.put("body", message);
 		data.put("latitude", latitude);
 		data.put("longitude", longitude);
+		String url = "http://54.218.95.197:8080/thinkcept/mvc/travelerMap.htm?latitude=" + latitude + 
+				"&longitude=" + longitude + "&interest=" + "&flag="+event;
+		System.out.println("Passing URL: " + url);
+		data.put("url", url);
 		payLoad.put("data", data);
 		return payLoad.toString();
 	}
-
 }
