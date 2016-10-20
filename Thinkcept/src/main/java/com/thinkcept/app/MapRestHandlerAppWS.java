@@ -75,7 +75,7 @@ public class MapRestHandlerAppWS {
 			@RequestParam(name = "latitude") String latitude, @RequestParam(name = "longitude") String longitude, 
 			@RequestParam(name = "message", required=false) String message, @RequestParam(name = "mob", required=false) String mobileNo) throws Exception {
 		RestServiceUtil util = new RestServiceUtil();
-		logger.debug("user:"+user+" event:"+event+" latitude:"+latitude+" longitude:"+longitude);
+		System.out.println("user:"+user+" event:"+event+" latitude:"+latitude+" longitude:"+longitude);
 		//System.out.println("user:"+user+" event:"+event+" latitude:"+latitude+" longitude:"+longitude+" message :"+message);
 		if(null != user && null != event && null != latitude && null != longitude) {
 			if(mobileNo == null || mobileNo.trim().length() == 0) {
@@ -83,6 +83,7 @@ public class MapRestHandlerAppWS {
 			}
 			
 			if(message != null && message.trim().length() > 0) {
+				System.out.println("Going to send SMS to " + mobileNo);
 				String senderId = "THNKCP";
 				try {
 					String output = "";
@@ -95,6 +96,7 @@ public class MapRestHandlerAppWS {
 						output = output + "\n" + s;
 					}
 				} catch (Exception e) {
+					System.out.println("Exception occured: " + e.getMessage());
 					e.printStackTrace();
 				}
 			}
