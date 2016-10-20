@@ -83,13 +83,13 @@ public class MapRestHandlerAppWS {
 			}
 			String buddyMsg = null;
 			if("0".equals(event)) {
-				buddyMsg = "Your papa has reached airport.\n-PHHoneix";
+				buddyMsg = "Your buddy has reached airport.\n-PHHoneix";
 			} else if("1".equals(event)) {
-				buddyMsg = "Your papa has collected boarding pass.\n-PHHoneix";
+				buddyMsg = "Your buddy has collected boarding pass.\n-PHHoneix";
 			} else if("2".equals(event)) {
-				buddyMsg = "Your papa is done with security checkin.\n-PHHoneix";
+				buddyMsg = "Your buddy is done with security checkin.\n-PHHoneix";
 			} else if("3".equals(event)) {
-				buddyMsg = "Your papa is ready to board.\n-PHHoneix";
+				buddyMsg = "Your buddy is ready to board.\n-PHHoneix";
 			} else if("100".equals(event)) {
 				buddyMsg = message;
 			}
