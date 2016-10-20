@@ -217,7 +217,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 	var endPlaceId = document.getElementById('dest').value;
 	console.log("startPlaceId = " + startPlaceId);
 	console.log("endPlaceId = " + endPlaceId);
-	
+	console.log("Start Point: " + direction.start.lat + "," + direction.start.lng);
+	console.log("End Point: " + direction.end.lat + "," + direction.end.lng);
 	
 	var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + direction.start.lat + "," + direction.start.lng+"&sensor=true";
 	findAddressByLatLon(url, 'srcPlaceName');
