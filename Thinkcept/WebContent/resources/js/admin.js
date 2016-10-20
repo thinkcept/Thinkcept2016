@@ -59,20 +59,20 @@ function  defaultMessage(){
 	
 	if(selectedVal=='b' || selectedVal=="b"  ){
 		document.getElementById("myTextarea").value = "Please Collect your boarding pass.";
-		document.getElementById("latitude").value = "41.97927760414138";
-		document.getElementById("longitude").value = "-87.90554925826643";
+		document.getElementById("latitude").value = "41.97898848526869";
+		document.getElementById("longitude").value = "87.90561363128279";
 	}
 	
 	if(selectedVal=='c' || selectedVal=="c"  ){
 		document.getElementById("myTextarea").value = "It seems you have completed security check in. You can explore the airport.";
-		document.getElementById("latitude").value = "41.97927760414138";
-		document.getElementById("longitude").value = "-87.90554925826643";
+		document.getElementById("latitude").value = "41.978976521700844";
+		document.getElementById("longitude").value = "87.90615946081732";
 	}
 	
 	if(selectedVal=='d' || selectedVal=="d"  ){
 		document.getElementById("myTextarea").value = "Time to board the flight. Happy Journey!";
-		document.getElementById("latitude").value = "41.97927760414138";
-		document.getElementById("longitude").value = "-87.90554925826643";
+		document.getElementById("latitude").value = "41.97799948940687";
+		document.getElementById("longitude").value = "87.90641158846472";
 	}
 	
 	if(selectedVal=='e' || selectedVal=="e"  ){
