@@ -86,10 +86,11 @@ public class MapRestHandlerAppWS {
 				System.out.println("Going to send SMS to " + mobileNo);
 				String senderId = "THNKCP";
 				try {
+					String cmd[] = new String[] {"/home/ubuntu/Code/script/sendSms.sh", mobileNo, senderId, message };
 					System.out.println("Going to execute /home/ubuntu/Code/script/sendSms.sh " + mobileNo + " " + senderId + " \"" + message + "\"");
 					String output = "";
-					Process process = Runtime.getRuntime().exec(
-							"/home/ubuntu/Code/script/sendSms.sh " + mobileNo + " " + senderId + " \"" + message + "\"");
+					Process process = Runtime.getRuntime().exec(cmd);
+							//"/home/ubuntu/Code/script/sendSms.sh " + mobileNo + " " + senderId + " \"" + message + "\"");
 					BufferedReader reader = new BufferedReader(new InputStreamReader(
 							process.getInputStream()));
 					String s;
