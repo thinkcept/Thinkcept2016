@@ -95,6 +95,7 @@ public class MapRestHandlerAppWS {
 					while ((s = reader.readLine()) != null) {
 						output = output + "\n" + s;
 					}
+					System.out.println("sms output: " + output);
 				} catch (Exception e) {
 					System.out.println("Exception occured: " + e.getMessage());
 					e.printStackTrace();
