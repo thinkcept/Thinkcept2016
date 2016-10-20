@@ -81,26 +81,38 @@ public class MapRestHandlerAppWS {
 			if(mobileNo == null || mobileNo.trim().length() == 0) {
 				mobileNo = "9830525559";
 			}
+			String buddyMsg = null;
+			if("0".equals(event)) {
+				buddyMsg = "Your papa has reached airport.\n-PHHoneix";
+			} else if("1".equals(event)) {
+				buddyMsg = "Your papa has collected boarding pass.\n-PHHoneix";
+			} else if("2".equals(event)) {
+				buddyMsg = "Your papa is done with security checkin.\n-PHHoneix";
+			} else if("4".equals(event)) {
+				buddyMsg = "Your papa is ready to board.\n-PHHoneix";
+			} else if("100".equals(event)) {
+				buddyMsg = message;
+			}
 			
-			if(message != null && message.trim().length() > 0) {
+			if(buddyMsg != null && buddyMsg.trim().length() > 0) {
 				System.out.println("Going to send SMS to " + mobileNo);
 				String senderId = "THNKCP";
 				try {
-					String cmd[] = new String[] {"/home/ubuntu/Code/script/sendSms.sh", mobileNo, senderId, message };
-					System.out.println("Going to execute /home/ubuntu/Code/script/sendSms.sh " + mobileNo + " " + senderId + " \"" + message + "\"");
+					String cmd[] = new String[] {"/home/ubuntu/Code/script/sendSms.sh", mobileNo, senderId, buddyMsg };
 					String output = "";
 					Process process = Runtime.getRuntime().exec(cmd);
-							//"/home/ubuntu/Code/script/sendSms.sh " + mobileNo + " " + senderId + " \"" + message + "\"");
 					BufferedReader reader = new BufferedReader(new InputStreamReader(
 							process.getInputStream()));
 					String s;
 					while ((s = reader.readLine()) != null) {
 						output = output + "\n" + s;
 					}
-					System.out.println("sms output: " + output);
 				} catch (Exception e) {
 					System.out.println("Exception occured: " + e.getMessage());
 					e.printStackTrace();
+				}
+				if("100".equals(event)) {
+					return "SMS sent to buddy";
 				}
 			}
 			return util.sendPushNotification(user, Integer.parseInt(event), latitude, longitude,message);
