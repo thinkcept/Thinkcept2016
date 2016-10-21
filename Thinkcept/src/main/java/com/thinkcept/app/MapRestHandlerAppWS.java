@@ -94,7 +94,7 @@ public class MapRestHandlerAppWS {
 				buddyMsg = message;
 			}
 			
-			if(buddyMsg != null && buddyMsg.trim().length() > 0) {
+			if(false && buddyMsg != null && buddyMsg.trim().length() > 0) {
 				System.out.println("Going to send SMS to " + mobileNo);
 				String senderId = "THNKCP";
 				try {
