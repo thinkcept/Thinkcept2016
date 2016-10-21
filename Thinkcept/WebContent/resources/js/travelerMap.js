@@ -65,8 +65,22 @@ function initMap() {
 					position : startObj,
 					animation : google.maps.Animation.BOUNCE,
 					map : map,
-					draggable: true
+					draggable: true,
+					
 				});
+				if(startObj.lat == security.lat && startObj.lng == security.lng)
+				{
+				 var myCity = new google.maps.Circle({
+					    center: startObj,
+					    radius: 150,
+					    strokeColor: "#CCCFFF",
+					    strokeOpacity: 0.8,
+					    strokeWeight: 2,
+					    fillColor: "#CCCFFF",
+					    fillOpacity: 0.4
+					  });
+					  myCity.setMap(map);
+				}
 				//alert(this.position);
 //				var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + pyrmont.lat + "," + pyrmont.lng+"&sensor=true";
 //				findAddressByLatLon(url, "src");
@@ -81,6 +95,7 @@ function initMap() {
 					infowindow.setContent(results[1].formatted_address);
 				}
 				infowindow.open(map, marker);
+				
 				
 				direction.start.lat = startObj.lat;
 				direction.start.lng = startObj.lng;
@@ -145,6 +160,7 @@ function nearByPlace(placeType) {
 		location : start,
 		radius : 500,
 		types : [ placeType ]
+		
 	}, callback);
 }
 
@@ -385,6 +401,19 @@ function pointMove(id)
 		var minutes = 60 * 45,
 		display = document.querySelector('#time');
 		startTimer(minutes, display);
+		
+		var myCity = new google.maps.Circle({
+		    center: startObj,
+		    radius: 150,
+		    strokeColor: "#CCCFFF",
+		    strokeOpacity: 0.8,
+		    strokeWeight: 2,
+		    fillColor: "#CCCFFF",
+		    fillOpacity: 0.4
+		  });
+		  myCity.setMap(map);
+		
+		
 	}
 	else if(id == 3)
 	{
