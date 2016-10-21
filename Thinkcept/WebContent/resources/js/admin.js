@@ -71,8 +71,8 @@ function  defaultMessage(){
 	
 	if(selectedVal=='d' || selectedVal=="d"  ){
 		document.getElementById("myTextarea").value = "Time to board the flight. Happy Journey!";
-		document.getElementById("latitude").value = "41.97799948940687";
-		document.getElementById("longitude").value = "-87.90641158846472";
+		document.getElementById("latitude").value = "41.97844812854602";
+		document.getElementById("longitude").value = "-87.9070740940914";
 	}
 	
 	if(selectedVal=='e' || selectedVal=="e"  ){
