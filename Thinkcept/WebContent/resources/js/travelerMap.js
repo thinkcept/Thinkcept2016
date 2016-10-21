@@ -15,8 +15,8 @@ var security = {
 		lng : -87.90615946081732		
 };
 var board = {
-		lat : 41.97799948940687,
-		lng : -87.90641158846472		
+		lat : 41.97844812854602,
+		lng : -87.9070740940914		
 };
 
 var endObj = {
@@ -72,7 +72,14 @@ function initMap() {
 //				findAddressByLatLon(url, "src");
 				
 				//document.getElementById('src').value = results[1].formatted_address;
-				infowindow.setContent(results[1].formatted_address);
+				if(startObj.lat == board.lat && startObj.lng == board.lng)
+				{
+					infowindow.setContent("Board");
+				}
+				else
+				{
+					infowindow.setContent(results[1].formatted_address);
+				}
 				infowindow.open(map, marker);
 				
 				direction.start.lat = startObj.lat;
@@ -105,11 +112,16 @@ function initMap() {
 			window.alert('Geocoder failed due to: ' + status);
 		}
 	});
-
-	createPlaceMarker(boarding, 1);
-	
-	
-	
+	var flag = document.getElementById('flag').value;
+	if(flag == undefined || flag == null || flag == '') {
+		createPlaceMarker(boarding, 1);
+	} else if(flag == 0)
+		createPlaceMarker(boarding, 1);
+	else if(flag == 1)
+		createPlaceMarker(security, 2);
+	else if(flag == 2)
+		createPlaceMarker(board, 3);
+		
 	/*var placeType = document.getElementById('placeType').value;
 	if(placeType != "")
 	{
@@ -370,9 +382,17 @@ function pointMove(id)
 	{
 		createPlaceMarker(board, 3);
 		interestId.style.display = "block";
-		var fiveMinutes = 60 * Number(document.getElementById("timeLeft").value),
+		var minutes = 60 * 45,
 		display = document.querySelector('#time');
-		startTimer(fiveMinutes, display);
+		startTimer(minutes, display);
+	}
+	else if(id == 3)
+	{
+		createPlaceMarker(board, 3);
+		interestId.style.display = "block";
+		var minutes = 60 * 10,
+		display = document.querySelector('#time');
+		startTimer(minutes, display);
 	}
 	//infowindow.setContent(results[1].formatted_address);
 	//infowindow.open(map, marker);
@@ -406,15 +426,29 @@ window.onload = function () {
 	span.onclick = function() {
 	    modal.style.display = "none";
 	}
-	
-	if(flag == undefined || flag == null || flag == '') {
+	interestId.style.display = "none";
+	if(flag==2)
+	{
+		interestId.style.display = "block";
+		var minutes = 60 * 45,
+		display = document.querySelector('#time');
+		startTimer(minutes, display);
+	}
+	else if(flag==3)
+	{
+		interestId.style.display = "block";
+		var minutes = 60 * 10,
+		display = document.querySelector('#time');
+		startTimer(minutes, display);
+	}
+	/*if(flag == undefined || flag == null || flag == '') {
 		interestId.style.display = "none";
 	} else {
 		interestId.style.display = "block";
 		var fiveMinutes = 60 * Number(document.getElementById("timeLeft").value),
 	    display = document.querySelector('#time');
 		startTimer(fiveMinutes, display);
-	}
+	}*/
 }
 //Get the modal
 
