@@ -62,7 +62,7 @@
 		<!-- Modal content -->
 		<div class="modal-content">
 			<div class="modal-header">
-				<span class="close">&#9747;</span>
+				<span class="close">X</span>
 				<h2 align="center">Your Interests</h2>
 			</div>
 			<div class="modal-body">
