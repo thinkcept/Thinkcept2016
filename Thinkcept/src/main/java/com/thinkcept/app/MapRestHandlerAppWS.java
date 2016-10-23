@@ -79,7 +79,7 @@ public class MapRestHandlerAppWS {
 		//System.out.println("user:"+user+" event:"+event+" latitude:"+latitude+" longitude:"+longitude+" message :"+message);
 		if(null != user && null != event && null != latitude && null != longitude) {
 			if(mobileNo == null || mobileNo.trim().length() == 0) {
-				mobileNo = "9830525559";
+				mobileNo = "9433857246";
 			}
 			String buddyMsg = null;
 			if("0".equals(event)) {
