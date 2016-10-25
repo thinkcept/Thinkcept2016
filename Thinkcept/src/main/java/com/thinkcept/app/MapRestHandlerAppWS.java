@@ -79,7 +79,7 @@ public class MapRestHandlerAppWS {
 		//System.out.println("user:"+user+" event:"+event+" latitude:"+latitude+" longitude:"+longitude+" message :"+message);
 		if(null != user && null != event && null != latitude && null != longitude) {
 			if(mobileNo == null || mobileNo.trim().length() == 0) {
-				mobileNo = "9433857246";
+				mobileNo = "9830525559";
 			}
 			String buddyMsg = null;
 			if("0".equals(event)) {
@@ -94,7 +94,7 @@ public class MapRestHandlerAppWS {
 				buddyMsg = message;
 			}
 			
-			if(buddyMsg != null && buddyMsg.trim().length() > 0) {
+			if(false && buddyMsg != null && buddyMsg.trim().length() > 0) {
 				System.out.println("Going to send SMS to " + mobileNo);
 				String senderId = "THNKCP";
 				try {
